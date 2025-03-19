@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala - Scenic Beauty</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #f4f4f9, #e2e2e2);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #6e8efb;
+        }
+
+        .images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .images img {
+            width: 30%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .images img:hover {
+            transform: scale(1.05);
+        }
+
+        .description {
+            margin: 20px 0;
+            text-align: left;
+            font-size: 1.1rem;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #6e8efb;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: #a777e3;
+        }
+
+        /* Decorative Elements */
+        .decorative {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .images {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .images img {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Kerala</h1>
+    <div class="images">
+        <img src="../styles/kerala-1.jpg" alt="Backwaters of Kerala">
+        <img src="../styles/Kerala-2.webp" alt="Houseboats in Kerala">
+        <img src="../styles/kerala-3.jpg" alt="Tea Gardens in Kerala">
+    </div>
+    <div class="description">
+        <h2>Scenic Highlights:</h2>
+        <ul>
+            <li>Kerala is renowned for its stunning backwaters and houseboats.</li>
+            <li>The state is famous for its lush green landscapes and tea gardens, especially in Munnar.</li>
+            <li>Kerala is known for its unique culture and traditions, including classical dance forms like Kathakali.</li>
+            <li>The cuisine is famous for its use of spices and coconut, with dishes like Kerala Sadya.</li>
+            <li>It is often referred to as "God's Own Country" due to its natural beauty and serene environment.</li>
+        </ul>
+        <a href="Kerala_360.html" class="button">View in 360</a>
+    </div>
+
+    <div class="decorative">
+        <p>&#x2665; Explore the beauty and tranquility of Kerala! &#x2665;</p>
+    </div>
+
+    <a href="PopularPlaces.html" class="button">Back to Popular Places</a>
+</body>
+</html>

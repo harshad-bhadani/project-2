@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../styles/admin.css">
+    <script src="admin.js" defer></script>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Manage Users</a></li>
+            <li><a href="#">Manage Bookings</a></li>
+            <li><a href="#">View Reports</a></li>
+            <li><a href="#" id="logout-btn">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Welcome, Admin</h1>
+            <p>Manage users and bookings efficiently.</p>
+        </header>
+
+        <section class="dashboard-stats">
+            <div class="stat-box">
+                <h3>Total Users</h3>
+                <p id="user-count">0</p>
+            </div>
+            <div class="stat-box">
+                <h3>Total Bookings</h3>
+                <p id="booking-count">0</p>
+            </div>
+        </section>
+
+        <section class="user-management">
+            <h2>User Management</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="user-table-body">
+                    <!-- User data will be inserted here dynamically -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+</body>
+</html>

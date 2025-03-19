@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Packages | Discover Destination</title>
+    <link rel="stylesheet" href="../styles/main.css">../styles/
+    
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background-image: url('f11.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #f9f9f9;
+            z-index: 1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            background-color: #ff9900;
+            color: #fff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+        }
+
+        /* Packages Section */
+        .packages-section {
+            padding: 4rem 2rem;
+            background-color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .package-cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1rem;
+            width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .book-now-btn {
+            background-color: #ff9900;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Location Section */
+        .location-section {
+            padding: 4rem 2rem;
+            background-color: #fff;
+        }
+
+        .location-cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .location-card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1rem;
+            width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .location-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .location-card-content {
+            padding: 1.5rem;
+        }
+
+        .location-card-content h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .location-card-content p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .location {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        .location-card:hover {
+            transform: translateY(-10px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+   
+        <nav>
+            <h2>WanderWell Tourism</h2>
+            <ul class="nav-links">
+                <li><a href="main.html">Home</a></li>
+                <li><a href="PopularPlaces.html" class="active">Popular Places</a></li>
+                <li><a href="hotel.html">Hotels</a></li>
+                <li><a href="OnlinePackages.html">Packages</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="login-btn" id="login-btn">Login</a>
+                <a href="signup.html" class="signup-btn" id="signup-btn">Sign Up</a>
+                <button id="logout-btn" class="logout-btn" style="display: none;">Logout</button>
+            </div>
+            
+        </nav>
+    <!-- Main Section -->
+    <header class="hero">
+        <div class="hero-text">
+            <h1>Discover Your Perfect Travel Package</h1>
+            <p>Choose from the best travel deals and explore the world like never before.</p>
+            <a href="#packages" class="cta-btn">Explore Packages</a>
+        </div>
+    </header>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages-section">
+        <h2 class="section-title">Our Featured Packages</h2>
+        <div class="package-cards">
+            <div class="card">
+                <img src="../styles/f-7.jpg" alt="Beach Paradise">
+                <div class="card-content">
+                    <h3>Beach Paradise</h3>
+                    <p>7 days of sunshine and relaxation at the world's top beaches. Perfect for families and couples.</p>
+                    <span class="price">₹15999/-</span>
+                    <a href="#beach-locations" class="book-now-btn">Book Now</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="../styles/story-2.png" alt="Mountain Adventure">
+                <div class="card-content">
+                    <h3>Mountain Adventure</h3>
+                    <p>5 days of thrilling hikes and breathtaking views. A perfect adventure for thrill-seekers.</p>
+                    <span class="price">₹12999/-</span>
+                    <a href="#mountain-locations" class="book-now-btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../styles/image-7.png" alt="City Escape">
+                <div class="card-content">
+                    <h3>City Escape</h3>
+                    <p>4 days exploring the most vibrant cities, packed with culture, food, and nightlife.</p>
+                    <span class="price">₹9999/-</span>
+                    <a href="#city-locations" class="book-now-btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../styles/TropicalParadice.jpeg" alt="Tropical Getaway">
+                <div class="card-content">
+                    <h3>Tropical Getaway</h3>
+                    <p>Experience a week of luxury and relaxation in a tropical paradise.</p>
+                    <span class="price">₹5999/-</span>
+                    <a href="#tropical-locations" class="book-now-btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../styles/Culture.jpeg" alt="Cultural Journey">
+                <div class="card-content">
+                    <h3>Cultural Journey</h3>
+                    <p>7 days immersed in rich cultures, history, and local traditions.</p>
+                    <span class="price">₹8999/-</span>
+                    <a href="#cultural-locations" class="book-now-btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="../styles/wildsafari.jpeg" alt="Wildlife Safari">
+                <div class="card-content">
+                    <h3>Wildlife Safari</h3>
+                    <p>5 days exploring wildlife reserves and experiencing nature up close.</p>
+                    <span class="price">₹10999/-</span>
+                    <a href="#wildlife-locations" class="book-now-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beach Locations Section
+    <section id="beach-locations" class="location-section">
+        <h2 class="section-title">Popular Beaches in India</h2>
+        <div class="location-cards">
+            <div class="location-card">
+                <img src="../styles/Goa.jpg" alt="Goa Beach">
+                <div class="location-card-content">
+                    <h3>Goa</h3>
+                    <p>Famous for its stunning coastline and vibrant nightlife.</p>
+                    <span class="location">Location: Goa, India</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <img src="../styles/Andaman.jpeg" alt="Andaman Beach">
+                <div class="location-card-content">
+                    <h3>Andaman Islands</h3>
+                    <p>Beautiful white sand beaches and crystal clear waters.</p>
+                    <span class="location">Location: Andaman and Nicobar Islands</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <img src="../styles/Kerala-3.jpg" alt="Kerala Beach">
+                <div class="location-card-content">
+                    <h3>Kerala</h3>
+                    <p>Known for its backwaters and serene beaches.</p>
+                    <span class="location">Location: Kerala, India</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mountain Locations Section -->
+    <!-- <section id="mountain-locations" class="location-section">
+        <h2 class="section-title">Mountain Adventures</h2>
+        <div class="location-cards">
+            <div class="location-card">
+                <img src="../styles/Himalaya.jpeg" alt="Himalayas">
+                <div class="location-card-content">
+                    <h3>Himalayas</h3>
+                    <p>Experience breathtaking views and thrilling treks.</p>
+                    <span class="location">Location: Himachal Pradesh, India</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <img src="../styles/westernghat.jpg" alt="Western Ghats">
+                <div class="location-card-content">
+                    <h3>Western Ghats</h3>
+                    <p>A UNESCO World Heritage site with stunning landscapes.</p>
+                    <span class="location">Location: Maharashtra, India</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <img src="../styles/Nilgiri.jpeg" alt="Nilgiri Hills">
+                <div class="location-card-content">
+                    <h3>Nilgiri Hills</h3>
+                    <p>A picturesque hill station with tea gardens.</p>
+                    <span class="location">Location: Tamil Nadu, India</span>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Wildlife Locations Section -->
+    <!-- <section id="wildlife-locations" class="location-section">
+        <h2 class="section-title">Wildlife Safaris</h2>
+        <div class="location-cards">
+            <div class="location-card">
+                <img src="../styles/ranthambore.jpeg" alt="Ranthambore">
+                <div class="location-card-content">
+                    <h3>Ranthambore</h3>
+                    <p>Explore the majestic tigers in their natural habitat.</p>
+                    <span class="location">Location: Rajasthan, India</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <img src="../styles/Kaziranga.webp" alt="Kaziranga">
+                <div class="location-card-content">
+                    <h3>Kaziranga National Park</h3>
+                    <p>Home to the one-horned rhinoceros and rich biodiversity.</p>
+                    <span class="location">Location: Assam, India</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <img src="../styles/Bandhavgarh.webp" alt="Bandhavgarh">
+                <div class="location-card-content">
+                    <h3>Bandhavgarh</h3>
+                    <p>Renowned for its large population of tigers.</p>
+                    <span class="location">Location: Madhya Pradesh, India</span>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- City Escape Locations Section -->
+    <!-- <section id="city-locations" class="location-section">
+        <h2 class="section-title">City Escape</h2>
+        <div class="location-cards">
+            <div class="location-card">
+                <img src="../styles/mumbai.jpeg" alt="Mumbai">
+                <div class="location-card-content">
+                    <h3>Mumbai</h3>
+                    <p>Experience the vibrant life of India's financial capital.</p>
+                    <span class="location">Location: Maharashtra, India</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <img src="../styles/delhi.webp" alt="Delhi">
+                <div class="location-card-content">
+                    <h3>Delhi</h3>
+                    <p>Explore the rich history and culture of the capital city.</p>
+                    <span class="location">Location: Delhi, India</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <img src="../styles/bangalore.jpg" alt="Bangalore">
+                <div class="location-card-content">
+                    <h3>Bangalore</h3>
+                    <p>Enjoy the tech capital's gardens and nightlife.</p>
+                    <span class="location">Location: Karnataka, India</span>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Tropical Getaway Locations Section -->
+    <!-- <section id="tropical-locations" class="location-section">
+        <h2 class="section-title">Tropical Getaway</h2>
+        <div class="location-cards">
+            <div class="location-card">
+                <img src="../styles/maldivs.jpg" alt="Maldives">
+                <div class="location-card-content">
+                    <h3>Maldives</h3>
+                    <p>Experience luxury in the beautiful islands.</p>
+                    <span class="location">Location: Maldives</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <img src="../styles/bora bora.jpg" alt="Bora Bora">
+                <div class="location-card-content">
+                    <h3>Bora Bora</h3>
+                    <p>Enjoy stunning coral reefs and clear waters.</p>
+                    <span class="location">Location: French Polynesia</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <img src="../styles/sychellas.jpeg" alt="Seychelles">
+                <div class="location-card-content">
+                    <h3>Seychelles</h3>
+                    <p>Relax on the picturesque beaches and lush greenery.</p>
+                    <span class="location">Location: Seychelles</span>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Cultural Journey Locations Section -->
+    <!-- <section id="cultural-locations" class="location-section">
+        <h2 class="section-title">Cultural Journey</h2>
+        <div class="location-cards">
+            <div class="location-card">
+                <img src="../styles/culturevaranasi.jpg" alt="Varanasi">
+                <div class="location-card-content">
+                    <h3>Varanasi</h3>
+                    <p>Immerse yourself in the spiritual culture of India.</p>
+                    <span class="location">Location: Uttar Pradesh, India</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <img src="../styles/culturejaipur.webp" alt="Jaipur">
+                <div class="location-card-content">
+                    <h3>Jaipur</h3>
+                    <p>Explore the rich heritage and royal history.</p>
+                    <span class="location">Location: Rajasthan, India</span>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <img src="../styles/culturekolkata.jpg" alt="Kolkata">
+                <div class="location-card-content">
+                    <h3>Kolkata</h3>
+                    <p>Discover the cultural capital with its art and literature.</p>
+                    <span class="location">Location: West Bengal, India</span>
+                </div>
+            </div>
+        </div>
+    </section>  -->
+</body>
+</html>
