@@ -21,10 +21,55 @@
             <div class="auth-buttons">
                 <a href="login.html" class="login-btn" id="login-btn">Login</a>
                 <a href="signup.html" class="signup-btn" id="signup-btn">Sign Up</a>
-                <button id="logout-btn" class="logout-btn" style="display: none;">Logout</button>
+
+                
+                <div class="profile-dropdown" id="profile-dropdown" style="display: none;">
+                    <i class="fas fa-user-circle profile-icon" id="profile-icon"></i>
+                    <span id="username-display">User</span> <!-- Display Username -->
+                    <div class="dropdown-menu" id="dropdown-menu">
+                        <p id="current-username"></p> 
+                        <button id="edit-username">Edit Username</button>
+                        <button id="change-password">Change Password</button>
+                        <!-- <button id="showBookingsBtn">My Bookings</button> 👈 NEW BUTTON -->
+                        <button id="logout-btn">Logout</button>
+                    </div>
+                </div>
+
+
+                <div id="username-modal" class="modal1">
+                    <div class="modal-content1">
+                        <span class="close" id="close-username-modal">&times;</span>
+                        <h2>Edit Username</h2>
+                        <input type="text" id="new-username" placeholder="Enter new username">
+                        <button id="save-username">Save</button>
+                    </div>
+                </div>
+                
+
+<!-- Password Change Modal -->
+<div id="password-modal" class="modal1">
+    <div class="modal-content1">
+        <span class="close" id="close-password-modal">&times;</span>
+        <h2>Change Password</h2>
+        <input type="password" id="new-password" placeholder="Enter new password">
+        <button id="save-password">Save</button>
+    </div>
+</div>
+
+<div id="profileBookings" style="display: none;">
+    <h3>Hotel Bookings</h3>
+    <div id="hotel-bookings"></div>
+  
+    <h3>Package Bookings</h3>
+    <div id="package-bookings"></div>
+  </div>
+  
+
+
+
             </div>
             
-        </nav>
+</nav>
         
         <div class="Text">
             <h1>Discover Popular Destinations</h1>
@@ -75,5 +120,6 @@
     </footer>
 
     <script src="main.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>

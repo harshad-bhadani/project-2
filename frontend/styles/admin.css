@@ -113,3 +113,156 @@ tbody tr:hover {
     cursor: pointer;
     font-weight: bold;
 }
+
+section {
+    margin-top: 40px;
+  }
+  
+  section h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  .booking-management {
+    margin-top: 40px;
+}
+
+.booking-management table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.booking-management th,
+.booking-management td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* ===== Modal Overlay ===== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* ===== Modal Box ===== */
+  .modal-content {
+    background: linear-gradient(to right, #ffffff, #f0f8ff);
+    padding: 30px 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease;
+  }
+  
+  /* Slide-in animation */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ===== Modal Header ===== */
+  .modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  /* ===== Input Fields ===== */
+  .modal-content input,
+  .modal-content textarea {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .modal-content input:focus,
+  .modal-content textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+  }
+  
+  /* ===== Submit Button ===== */
+  .modal-content button {
+    width: 100%;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    padding: 12px 18px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+  }
+  
+  .modal-content button:hover {
+    background: linear-gradient(to right, #43e97b, #38f9d7);
+    transform: scale(1.03);
+  }
+  
+  /* ===== Close Button (X) ===== */
+  .modal-content .close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .modal-content .close:hover {
+    color: #ff4d4d;
+  }
+
+
+
+  .hotel-management table,
+.hotel-management th,
+.hotel-management td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 8px;
+}
+
+.hotel-management th {
+  background-color: black;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: black;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+  

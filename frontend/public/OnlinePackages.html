@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Packages | Discover Destination</title>
-    <link rel="stylesheet" href="../styles/main.css">../styles/
+    <link rel="stylesheet" href="../styles/main.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         /* General Styles */
@@ -17,7 +18,7 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: white;
             background-color: #f4f4f4;
         }
 
@@ -82,6 +83,7 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 2rem;
+            color: black;
         }
 
         .package-cards {
@@ -194,26 +196,69 @@
         .location-card:hover {
             transform: translateY(-10px);
         }
+        .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center; /* Center-align cards */
+  padding: 2rem;
+}
+
+
     </style>
 </head>
 <body>
     <!-- Navbar -->
    
-        <nav>
-            <h2>WanderWell Tourism</h2>
-            <ul class="nav-links">
-                <li><a href="main.html">Home</a></li>
-                <li><a href="PopularPlaces.html" class="active">Popular Places</a></li>
-                <li><a href="hotel.html">Hotels</a></li>
-                <li><a href="OnlinePackages.html">Packages</a></li>
-            </ul>
-            <div class="auth-buttons">
-                <a href="login.html" class="login-btn" id="login-btn">Login</a>
-                <a href="signup.html" class="signup-btn" id="signup-btn">Sign Up</a>
-                <button id="logout-btn" class="logout-btn" style="display: none;">Logout</button>
+    <nav>
+        <h2>WanderWell Tourism</h2>
+        <ul class="nav-links">
+            <li><a href="main.html">Home</a></li>
+            <li><a href="PopularPlaces.html" class="active">Popular Places</a></li>
+            <li><a href="hotel.html">Hotels</a></li>
+            <li><a href="OnlinePackages.html">Packages</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <a href="login.html" class="login-btn" id="login-btn">Login</a>
+            <a href="signup.html" class="signup-btn" id="signup-btn">Sign Up</a>
+
+            
+            <div class="profile-dropdown" id="profile-dropdown" style="display: none;">
+                <i class="fas fa-user-circle profile-icon" id="profile-icon"></i>
+                <span id="username-display">User</span> <!-- Display Username -->
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <p id="current-username"></p> 
+                    <button id="edit-username">Edit Username</button>
+                    <button id="change-password">Change Password</button>
+                    <button id="logout-btn">Logout</button>
+                </div>
+            </div>
+
+
+            <div id="username-modal" class="modal1">
+                <div class="modal-content1">
+                    <span class="close" id="close-username-modal">&times;</span>
+                    <h2>Edit Username</h2>
+                    <input type="text" id="new-username" placeholder="Enter new username">
+                    <button id="save-username">Save</button>
+                </div>
             </div>
             
-        </nav>
+
+<!-- Password Change Modal -->
+<div id="password-modal" class="modal1">
+<div class="modal-content1">
+    <span class="close" id="close-password-modal">&times;</span>
+    <h2>Change Password</h2>
+    <input type="password" id="new-password" placeholder="Enter new password">
+    <button id="save-password">Save</button>
+</div>
+</div>
+
+
+        </div>
+        
+</nav>
     <!-- Main Section -->
     <header class="hero">
         <div class="hero-text">
@@ -227,65 +272,71 @@
     <section id="packages" class="packages-section">
         <h2 class="section-title">Our Featured Packages</h2>
         <div class="package-cards">
-            <div class="card">
+            <div class="card" data-package-id="1">
                 <img src="../styles/f-7.jpg" alt="Beach Paradise">
                 <div class="card-content">
                     <h3>Beach Paradise</h3>
                     <p>7 days of sunshine and relaxation at the world's top beaches. Perfect for families and couples.</p>
                     <span class="price">₹15999/-</span>
-                    <a href="#beach-locations" class="book-now-btn">Book Now</a>
+                    <a href="#beach-locations"  class="book-now-btn">Book Now</a>
                 </div>
             </div>
             
-            <div class="card">
+            <div class="card" data-package-id="2">
                 <img src="../styles/story-2.png" alt="Mountain Adventure">
                 <div class="card-content">
                     <h3>Mountain Adventure</h3>
                     <p>5 days of thrilling hikes and breathtaking views. A perfect adventure for thrill-seekers.</p>
                     <span class="price">₹12999/-</span>
-                    <a href="#mountain-locations" class="book-now-btn">Book Now</a>
+                    <a href="#mountain-locations"  class="book-now-btn">Book Now</a>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-package-id="3">
                 <img src="../styles/image-7.png" alt="City Escape">
                 <div class="card-content">
                     <h3>City Escape</h3>
                     <p>4 days exploring the most vibrant cities, packed with culture, food, and nightlife.</p>
                     <span class="price">₹9999/-</span>
-                    <a href="#city-locations" class="book-now-btn">Book Now</a>
+                    <a href="#city-locations"  class="book-now-btn">Book Now</a>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-package-id="4">
                 <img src="../styles/TropicalParadice.jpeg" alt="Tropical Getaway">
                 <div class="card-content">
                     <h3>Tropical Getaway</h3>
                     <p>Experience a week of luxury and relaxation in a tropical paradise.</p>
                     <span class="price">₹5999/-</span>
-                    <a href="#tropical-locations" class="book-now-btn">Book Now</a>
+                    <a href="#tropical-locations"   class="book-now-btn">Book Now</a>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-package-id="5">
                 <img src="../styles/Culture.jpeg" alt="Cultural Journey">
                 <div class="card-content">
                     <h3>Cultural Journey</h3>
                     <p>7 days immersed in rich cultures, history, and local traditions.</p>
                     <span class="price">₹8999/-</span>
-                    <a href="#cultural-locations" class="book-now-btn">Book Now</a>
+                    <a href="#cultural-locations"  class="book-now-btn">Book Now</a>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-package-id="6">
                 <img src="../styles/wildsafari.jpeg" alt="Wildlife Safari">
                 <div class="card-content">
                     <h3>Wildlife Safari</h3>
                     <p>5 days exploring wildlife reserves and experiencing nature up close.</p>
                     <span class="price">₹10999/-</span>
-                    <a href="#wildlife-locations" class="book-now-btn">Book Now</a>
+                    <a href="#wildlife-locations"  class="book-now-btn">Book Now</a>
                 </div>
             </div>
+            <div id="packages-container" class="card-container"></div>
+
+              
+
+            </div>
+
         </div>
     </section>
 
@@ -486,5 +537,8 @@
             </div>
         </div>
     </section>  -->
+    <script src="main.js"></script>
+    <script src="onlinepackage.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>

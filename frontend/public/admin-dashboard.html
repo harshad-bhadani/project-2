@@ -1,60 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="../styles/admin.css">
-    <script src="admin.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="../styles/admin.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="admin.js" defer></script>
 </head>
 <body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#user-management">Manage Users</a></li>
+      <li><a href="#booking-management">Manage Bookings</a></li>
+      <li><a href="#package-management">Manage Packages</a></li>
+      <li><a href="#" id="add-hotel-btn">Add Hotel</a></li>
+      <li><a href="#" id="add-package-btn">Add Package</a></li>
+      <li><a href="#">View Reports</a></li>
+      <li><a href="#" id="logout-btn">Logout</a></li>
+    </ul>
+  </div>
 
-    <div class="sidebar">
-        <h2>Admin Panel</h2>
-        <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Manage Users</a></li>
-            <li><a href="#">Manage Bookings</a></li>
-            <li><a href="#">View Reports</a></li>
-            <li><a href="#" id="logout-btn">Logout</a></li>
-        </ul>
+  <!-- Main Content -->
+  <div class="main-content">
+    <header>
+      <h1>Welcome, Admin</h1>
+      <p>Manage users, bookings and packages efficiently.</p>
+    </header>
+
+    <!-- Dashboard Stats -->
+    <section class="dashboard-stats">
+      <div class="stat-box">
+        <h3>Total Users</h3>
+        <p id="user-count">0</p>
+      </div>
+      <div class="stat-box">
+        <h3>Total Bookings</h3>
+        <p id="booking-count">0</p>
+      </div>
+    </section>
+
+    <!-- Add Buttons -->
+    <section class="admin-actions" style="margin: 20px 0;">
+      <button id="show-add-hotel-form">➕ Add Hotel</button>
+      <button id="show-add-package-form">➕ Add Package</button>
+    </section>
+
+    <!-- User Management -->
+    <section class="user-management" id="user-management">
+      <h2>User Management</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="user-table-body">
+          <!-- User data will be inserted here dynamically -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Booking Management -->
+    <section class="booking-management" id="booking-management">
+      <h2>Hotel Booking Management</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Email</th>
+            <th>Hotel</th>
+            <th>Check-In</th>
+            <th>Check-Out</th>
+            <th>Guests</th>
+            <th>Total Price</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="hotel-bookings-table-body">
+          <!-- Booking data will be inserted here dynamically -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Hotel Management -->
+<section class="hotel-management" id="hotel-management">
+  <h2>Hotel Management</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Price</th>
+        <th>Amenities</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="hotel-table-body">
+      <!-- Hotel data will be inserted here dynamically -->
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>Package Management</h2>
+<table id="package-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody id="package-table-body">
+    <!-- JS will inject rows here -->
+  </tbody>
+</table>
+</section>
+
+
+    <!-- Package Management -->
+    <section class="package-management" id="package-management">
+      <h2>Package Booking Management</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>userID</th>
+            <th>packageID</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="package-table-body1">
+          <!-- Package data will be inserted here dynamically -->
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <!-- Add Hotel Modal -->
+  <div class="modal" id="hotel-modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('hotel-modal').style.display='none'">&times;</span>
+      <h2>Add New Hotel</h2>
+      <input type="text" id="hotel-name" placeholder="Hotel Name" />
+      <input type="text" id="hotel-location" placeholder="Location" />
+      <input type="text" id="hotel-image" placeholder="Image URL" />
+      <input type="number" id="hotel-price" placeholder="Price per Night" />
+      <input type="text" id="hotel-amenities" placeholder="Amenities (comma-separated)" />
+      <button id="submit-hotel">Add Hotel</button>
     </div>
+  </div>
 
-    <div class="main-content">
-        <header>
-            <h1>Welcome, Admin</h1>
-            <p>Manage users and bookings efficiently.</p>
-        </header>
-
-        <section class="dashboard-stats">
-            <div class="stat-box">
-                <h3>Total Users</h3>
-                <p id="user-count">0</p>
-            </div>
-            <div class="stat-box">
-                <h3>Total Bookings</h3>
-                <p id="booking-count">0</p>
-            </div>
-        </section>
-
-        <section class="user-management">
-            <h2>User Management</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="user-table-body">
-                    <!-- User data will be inserted here dynamically -->
-                </tbody>
-            </table>
-        </section>
+  <!-- Add Package Modal -->
+  <div class="modal" id="package-modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('package-modal').style.display='none'">&times;</span>
+      <h2>Add New Package</h2>
+  
+      <input type="text" id="package-name" placeholder="Package Name" />
+      <input type="text" id="package-destination" placeholder="Destination" />
+      <input type="text" id="package-duration" placeholder="Duration (e.g., 5 Days / 4 Nights)" />
+      <textarea id="package-description" placeholder="Description"></textarea>
+      <input type="text" id="package-image" placeholder="Image URL" />
+      <input type="number" id="package-price" placeholder="Price (INR)" />
+  
+      <button id="submit-package">Add Package</button>
     </div>
-
+  </div>
+  
 </body>
 </html>

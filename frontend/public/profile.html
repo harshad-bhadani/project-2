@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | WanderWell Tourism</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        /* Basic styles for better interface */
+        .profile-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+        .profile-info p {
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+        .profile-info button {
+            margin: 10px 5px;
+            padding: 8px 12px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .profile-img {
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+    </style>
+    <script defer src="profile.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <h2>WanderWell Tourism</h2>
+            <ul class="nav-links">
+                <li><a href="main.html">Home</a></li>
+                <li><a href="PopularPlaces.html">Popular Places</a></li>
+                <li><a href="hotel.html">Hotels</a></li>
+                <li><a href="OnlinePackages.html">Packages</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="profile-container">
+        <img src="https://via.placeholder.com/100" alt="Profile Image" id="profile-img" class="profile-img">
+        <h2>Your Profile</h2>
+        <div class="profile-info">
+            <p><strong>Username:</strong> <span id="username">Loading...</span></p>
+            <button id="edit-username">Edit Username</button>
+
+            <p><strong>Email:</strong> <span id="email">Loading...</span></p>
+
+            <button id="change-password">Change Password</button>
+            <button id="logout-btn">Logout</button>
+        </div>
+    </section>
+</body>
+</html>

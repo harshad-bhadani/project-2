@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("✅ signup.js loaded!");
+    console.log(" signup.js loaded!");
 });
 
 document.getElementById("signup-form").addEventListener("submit", async (e) => {
     e.preventDefault();
-    console.log("✅ Signup form submitted!");
+    console.log(" Signup form submitted!");
 
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
@@ -15,13 +15,13 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
     // Email validation
     const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com|hotmail\.com)$/;
     if (!emailRegex.test(email)) {
-        alert("❌ Please enter a valid email (Gmail, Yahoo, Outlook, Hotmail only).");
+        alert(" Please enter a valid email (Gmail, Yahoo, Outlook, Hotmail only).");
         return;
     }
 
     // Password validation
     if (password.length < 3 || password.length > 10) {
-        alert("❌ Password must be between 3 and 10 characters.");
+        alert("Password must be between 3 and 10 characters.");
         return;
     }
 
@@ -35,7 +35,7 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
     console.log("🛬 Server Response:", result);
 
     if (response.ok) {
-        alert("✅ Signup successful!");
+        alert(" Signup successful!");
         window.location.href = "/login";
     } else {
         alert(result.message || "❌ Signup failed");

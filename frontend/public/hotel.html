@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles/hotel.css"> <!-- Link to the external CSS file -->
   <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -19,17 +20,53 @@
         <li><a href="OnlinePackages.html">Packages</a></li>
     </ul>
     <div class="auth-buttons">
-        <a href="login.html" class="login-btn">Login</a>
-        <a href="signup.html" class="signup-btn">Sign Up</a>
+        <a href="login.html" class="login-btn" id="login-btn">Login</a>
+        <a href="signup.html" class="signup-btn" id="signup-btn">Sign Up</a>
+
+        
+        <div class="profile-dropdown" id="profile-dropdown" style="display: none;">
+            <i class="fas fa-user-circle profile-icon" id="profile-icon"></i>
+            <span id="username-display">User</span> <!-- Display Username -->
+            <div class="dropdown-menu" id="dropdown-menu">
+                <p id="current-username"></p> 
+                <button id="edit-username">Edit Username</button>
+                <button id="change-password">Change Password</button>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </div>
+
+
+        <div id="username-modal" class="modal1">
+            <div class="modal-content1">
+                <span class="close" id="close-username-modal">&times;</span>
+                <h2>Edit Username</h2>
+                <input type="text" id="new-username" placeholder="Enter new username">
+                <button id="save-username">Save</button>
+            </div>
+        </div>
+        
+
+<!-- Password Change Modal -->
+<div id="password-modal" class="modal1">
+<div class="modal-content1">
+<span class="close" id="close-password-modal">&times;</span>
+<h2>Change Password</h2>
+<input type="password" id="new-password" placeholder="Enter new password">
+<button id="save-password">Save</button>
+</div>
+</div>
+
+
     </div>
-  </nav>      
+    
+</nav>      
 
   <section class="hero-section">
     <h1>Find Your Dream Hotel</h1>
   </section>
 
   <div class="container">
-    <div class="hotel-card" data-name="Taj Hotel" data-location="Mumbai, India" data-price="₹7,999" data-details="1 Night, 2 Guests (Free Wi-Fi, Parking, Pool)">
+    <div class="hotel-card" data-id="1" data-name="Taj Hotel" data-location="Mumbai, India" data-price="₹7,999" data-details="1 Night, 2 Guests (Free Wi-Fi, Parking, Pool)">
       <div class="hotel-image">
         <img src="../styles/f5.png" alt="Taj Hotel">
       </div>
@@ -48,7 +85,7 @@
       </div>
     </div>
 
-    <div class="hotel-card" data-name="Hotel Asian Park" data-location="Srinagar, India" data-price="₹4,999" data-details="1 Night, 2 Guests (Free Wi-Fi, Parking, Pool)">
+    <div class="hotel-card" data-id="2" data-name="Hotel Asian Park" data-location="Srinagar, India" data-price="₹4,999" data-details="1 Night, 2 Guests (Free Wi-Fi, Parking, Pool)">
       <div class="hotel-image">
         <img src="../styles/f13.png" alt="Hotel Asian Park">
       </div>
@@ -67,7 +104,7 @@
       </div>
     </div>
 
-    <div class="hotel-card" data-name="Leela Palace" data-location="New Delhi, India" data-price="₹6,500" data-details="1 Night, 2 Guests (Free Wi-Fi, Spa, Pool)">
+    <div class="hotel-card"  data-id="3" data-name="Leela Palace" data-location="New Delhi, India" data-price="₹6,500" data-details="1 Night, 2 Guests (Free Wi-Fi, Spa, Pool)">
       <div class="hotel-image">
         <img src="../styles/Leela Palace.jpg" alt="Leela Palace">
       </div>
@@ -86,7 +123,7 @@
       </div>
     </div>
 
-    <div class="hotel-card" data-name="Oberoi Udaivilas" data-location="Udaipur, India" data-price="₹15,000" data-details="1 Night, 2 Guests (Free Breakfast, Pool, Spa)">
+    <div class="hotel-card" data-id="4" data-name="Oberoi Udaivilas" data-location="Udaipur, India" data-price="₹15,000" data-details="1 Night, 2 Guests (Free Breakfast, Pool, Spa)">
       <div class="hotel-image">
         <img src="../styles/OberoiUdaivilas.webp" alt="Oberoi Udaivilas">
       </div>
@@ -105,7 +142,7 @@
       </div>
     </div>
 
-    <div class="hotel-card" data-name="Hyatt Regency" data-location="Chennai, India" data-price="₹4,500" data-details="1 Night, 2 Guests (Free Wi-Fi, Breakfast, Pool)">
+    <div class="hotel-card"  data-id="5" data-name="Hyatt Regency" data-location="Chennai, India" data-price="₹4,500" data-details="1 Night, 2 Guests (Free Wi-Fi, Breakfast, Pool)">
       <div class="hotel-image">
         <img src="../styles/hyattregency.jpeg" alt="Hyatt Regency">
       </div>
@@ -123,7 +160,7 @@
       </div>
     </div>
 
-    <div class="hotel-card" data-name="JW Marriott" data-location="Mumbai, India" data-price="₹7,000" data-details="1 Night, 2 Guests (Free Wi-Fi, Gym, Pool)">
+    <div class="hotel-card" data-id="6" data-name="JW Marriott" data-location="Mumbai, India" data-price="₹7,000" data-details="1 Night, 2 Guests (Free Wi-Fi, Gym, Pool)">
       <div class="hotel-image">
         <img src="../styles/JwMarriot.jpg" alt="JW Marriott">
       </div>
@@ -141,7 +178,7 @@
       </div>
     </div>
 
-    <div class="hotel-card" data-name="Radisson Blu" data-location="Kolkata, India" data-price="₹5,500" data-details="1 Night, 2 Guests (Free Wi-Fi, Spa, Breakfast)">
+    <div class="hotel-card" data-id="7" data-name="Radisson Blu" data-location="Kolkata, India" data-price="₹5,500" data-details="1 Night, 2 Guests (Free Wi-Fi, Spa, Breakfast)">
       <div class="hotel-image">
         <img src="../styles/RaddisonBlue.jpeg" alt="Radisson Blu">
       </div>
@@ -158,6 +195,13 @@
         <a href="#" class="view-details">View Details</a>
       </div>
     </div>
+
+    <div id="hotel-container" class="hotel-listings">
+      <!-- Hotel cards will be added here -->
+    </div>
+    
+    
+    
 
   </div>
   <!-- Modal Structure -->
@@ -176,22 +220,27 @@
 
   <div class="booking-form">
     <h3>Book Your Stay</h3>
+    
+    
+    <input type="hidden" id="user_id">
 
-    <div class="date-display">
-      <strong>Check-in:</strong> <span id="selectedCheckin"></span> &nbsp; | &nbsp;
-      <strong>Check-out:</strong> <span id="selectedCheckout"></span>
-    </div>
+    
+    <input type="hidden" id="hotel_id">
 
     <label for="checkin">Check-in Date:</label>
-    <input type="date" id="checkin">
+    <input type="date" id="checkin" required>
 
     <label for="checkout">Check-out Date:</label>
-    <input type="date" id="checkout">
-        <label for="guests">Guests:</label>
-        <input type="number" id="guests" min="1">
+    <input type="date" id="checkout" required>
 
-        <button id="bookNow">Book Now</button>
-      </div>
+    <label for="guests">Guests:</label>
+    <input type="number" id="guests" min="1" required>
+
+    <p id="totalPrice"></p>
+
+    <button id="bookNow">Book Now</button>
+  </div>
+  
 
       <button class="close-btn">Close</button>
     </div>
@@ -200,6 +249,8 @@
 
 
   
+  <script src="main.js"></script>
  <script src="hotel.js"></script>
+ <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
