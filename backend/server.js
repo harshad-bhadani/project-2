@@ -521,4 +521,20 @@ app.delete('/cancel-hotel-booking/:id', async (req, res) => {
   
 
 
+// Endpoint to fetch popular places from the database with search query
+app.get('/get-popular-places', function (req, res) {
+  const search = req.query.search || '';  // Get search query
+  const query = 'SELECT * FROM popular_places WHERE name LIKE ?';
+  
+  db.query(query, [`%${search}%`], function (error, results) {
+      if (error) {
+          console.error('Database error:', error);
+          res.status(500).send('Error fetching data.');
+      } else {
+          res.json(results);  // Return the filtered data as JSON
+      }
+  });
+});
+
+
 app.listen(8000, () => console.log("🚀 Server running on http://localhost:8000"));

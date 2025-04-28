@@ -588,3 +588,97 @@ footer {
   }
   
   
+/* css for search card */
+/* Popular Places Container */
+#places-container .page-card {
+    height: 450px; /* 🔥 Increase height */
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+    margin: 10px;
+}
+
+#places-container .page-card:hover {
+    transform: translateY(-5px);
+}
+
+#places-container .page-card img {
+    width: 100%;
+    height: 200px; /* 🖼 Proper image height inside card */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Individual Place Card */
+.page-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    margin: 0 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+}
+
+/* Card Image */
+.page-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;  /* Ensures image covers the area */
+    border-bottom: 4px solid #f39c12;
+}
+
+/* Card Title */
+.page-card h2 {
+    font-size: 20px;
+    margin: 15px 0;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Card Description */
+.page-card p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #666;
+    padding: 0 15px;
+}
+
+/* Card Link */
+.page-card a {
+    text-decoration: none;
+    background-color: #f39c12;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect on the card */
+.page-card a:hover {
+    background-color: #e67e22;
+}
+
+/* Hover Effect on Card */
+.page-card:hover {
+    transform: scale(1.05);  /* Slight zoom effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Stronger shadow */
+}
+
+/* Hover Effect on Link */
+.page-card:hover a {
+    background-color: #e67e22;
+}

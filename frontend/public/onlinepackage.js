@@ -65,8 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log("🔹 Booking Response:", bookingData);
 
                 if (bookingResponse.ok && bookingData.success) {
-                    console.log(` Package booked! Total Price: $${bookingData.total_price}`);
-                    alert(` Package booked successfully! Total Price: $${bookingData.total_price}`);
+                    console.log(` Package booked! Total Price: ₹${bookingData.total_price}`);
+                    alert(` Package booked successfully! Total Price: ₹${bookingData.total_price}`);
                 } else {
                     console.error(" Booking Failed:", bookingData.message);
                     alert(` ${bookingData.message}`);

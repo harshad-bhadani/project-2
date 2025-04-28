@@ -227,3 +227,76 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(err => console.error('Cancel failed:', err));
   }
   
+
+
+  // search functionality
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("search-input");
+    const searchBtn = document.getElementById("search-button");
+    const placesContainer = document.getElementById("places-container");
+
+    // Function to fetch and display popular places
+    function fetchPlaces(query = "") {
+        // Clear the container before adding new data
+        placesContainer.innerHTML = "";
+
+        // Use the search query if available, otherwise fetch all places
+        const apiUrl = query ? `http://localhost:8000/get-popular-places?search=${query}` : "http://localhost:8000/get-popular-places";
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(placesData => {
+                if (placesData.length > 0) {
+                    displayPlaces(placesData);
+                } else {
+                    placesContainer.innerHTML = "<p>No places found matching your search.</p>";
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching popular places:", error);
+                placesContainer.innerHTML = "<p>Error fetching data. Please try again later.</p>";
+            });
+    }
+
+    // Function to display places in the container
+    function displayPlaces(places) {
+        places.forEach(function (place) {
+            const placeElement = document.createElement("div");
+            placeElement.classList.add("page-card");
+
+            placeElement.innerHTML = `
+                <img src="${place.image_url}" alt="${place.name}">
+                <h2>${place.name}</h2>
+                <p>${place.description}</p>
+                <a href="${place.read_more}">Read More</a>
+            `;
+
+            placesContainer.appendChild(placeElement);
+        });
+    }
+
+    // Trigger search when the user types in the input field (real-time search)
+    searchInput.addEventListener("input", function () {
+        const query = searchInput.value.trim();
+        if (query) {
+            fetchPlaces(query);  // Fetch filtered places based on the query
+        } else {
+            placesContainer.innerHTML = "";  // Clear the container when search is empty
+        }
+    });
+
+    // Trigger search when the user clicks the search button
+    searchBtn.addEventListener("click", function () {
+        const query = searchInput.value.trim();
+        if (query) {
+            fetchPlaces(query);  // Fetch filtered places based on the query
+        } else {
+            placesContainer.innerHTML = "";  // Clear the container when search is empty
+        }
+    });
+
+    // Fetch and display all places initially (empty container, no data)
+    placesContainer.innerHTML = "";
+});
+
